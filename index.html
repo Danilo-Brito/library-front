@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Biblioteca</title>
+</head>
+
+<body>
+    <div class="layer">
+        <header>
+            <div class="header-text">
+                <h1>Biblioteca</h1>
+                <p>Liste todos os seus livros</p>
+            </div>
+        </header>
+
+        <div class="floating-library-form">
+            <div class="form-container">
+                <h3>Adicione um novo livro</h3>
+
+                <form action="#">
+                    <div class="field-container">
+                        <i class="fa-solid fa-book"></i>
+                        <label for="book">Livro</label>
+                        <input class="form-input" type="text" id="name">
+                    </div>
+
+                    <div class="field-container">
+                        <i class="fa-solid fa-bookmark"></i>
+                        <label for="category">Categoria</label>
+                        <input class="form-input" type="text" id="category">
+                    </div>
+
+                    <div class="field-container">
+                        <i class="fa-solid fa-user"></i>
+                        <label for="author">Autor</label>
+                        <input class="form-input" type="text" id="author">
+                    </div>
+
+                    <input type="submit" value="Adicionar" onclick="showForm">
+                </form>
+            </div>
+            <div class="library-icon">
+                <i class="fa-solid fa-circle-plus"></i>
+            </div>
+        </div>
+
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Livro</th>
+                    <th>Categoria</th>
+                    <th>Autor</th>
+                    <th>Operações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Duna</td>
+                    <td>Frank Hebert</td>
+                    <td>Ficção Científica</td>
+                    <td class="content-table-icon">
+                        <button class="btn-edit-book"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn-delete-book"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>O Chamado de Cthulhu</td>
+                    <td>H.P. Lovecraft</td>
+                    <td>Ficção Científica</td>
+                     <td class="content-table-icon">
+                        <button class="btn-edit-book"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn-delete-book"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Elantris</td>
+                    <td>Brandon Sanderson</td>
+                    <td>Ficção Científica</td>
+                     <td class="content-table-icon">
+                        <button class="btn-edit-book"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn-delete-book"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Crepúsculo</td>
+                    <td>Stephenie Meyer</td>
+                    <td>Romance</td>
+                     <td class="content-table-icon">
+                        <button class="btn-edit-book"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn-delete-book"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

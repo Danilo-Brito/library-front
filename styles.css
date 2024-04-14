@@ -1,0 +1,249 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+    font-family: serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+/* HEADER */
+header {
+    background-image: url(resources/header.jpeg);
+    object-fit: cover;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.header-text {
+    display: inline-block;
+    position: sticky;
+    color: white;
+    font-size: 30px;
+    padding: 60px;
+    background-color: rgba(0, 0, 0, 0.334);
+}
+
+/* End */
+
+/* Form */
+.floating-library-form .library-icon {
+    position: fixed;
+    bottom: 40px;
+    right: 50px;
+    cursor: pointer;
+    padding: 16px;
+}
+
+.floating-library-form .library-icon i {
+    font-size: 42px;
+    color: #003049;
+    transition: all 300ms ease;
+}
+
+.floating-library-form .library-icon i:hover {
+    transform: scale(1.1);
+}
+
+/* Ajustar esse cara depois para ficar legal no layout */
+.floating-library-form .form-container {
+    position: fixed;
+    bottom: 120px;
+    right: 50px;
+    padding: 24px 36px;
+    width: 480px;
+    font-family: "Roboto", sans-serif;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+
+    transform: rotateZ(-6deg);
+    transform-origin: bottom right;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 500ms ease;
+}
+
+.floating-library-form .form-container.active {
+    transform: rotateZ(0deg);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* * serve para aplicar para todos os componentes dentro desse form */
+.floating-library-form * {
+    box-sizing: border-box;
+}
+
+.floating-library-form h3 {
+    font-size: 30px;
+    color: #003049;
+    margin-top: 10px;
+}
+
+.floating-library-form form input[type="text"],
+.floating-library-form form textarea {
+    width: 100%;
+    padding: 14px 32px;
+    padding-left: 40px;
+    font-size: 16px;
+    border: 1px solid rgba(0, 47, 73, 0.3);
+    border-radius: 8px;
+    color: #003049;
+    margin-bottom: 20px;
+}
+
+.floating-library-form form input:focus,
+.floating-library-form form textarea:focus {
+    outline: none;
+}
+
+.floating-library-form .field-container {
+    position: relative;
+}
+
+.floating-library-form .field-container label {
+    position: absolute;
+    top: 16px;
+    left: 36px;
+    color: #003049;
+    border-left: 8px solid white;
+    border-right: 8px solid white;
+    transition: all 300ms ease;
+    position: none;
+}
+
+.floating-library-form .field-container label.active {
+    font-size: 13px;
+    background-color: #ef233c;
+    color: white;
+    padding: 2px 15px;
+    top: -8px;
+    left: 24px;
+    font-weight: bold;
+}
+
+.floating-library-form .field-container i {
+    position: absolute;
+    top: 16px;
+    left: 12px;
+    color: rgba(0, 55, 85, 0.8);
+}
+
+.floating-library-form form input[type="submit"] {
+    border: none;
+    background: #003049;
+    color: white;
+    padding: 16px 32px;
+    width: 100%;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 500ms ease;
+}
+
+.floating-library-form form input[type="submit"]:hover {
+    background: #00659b;
+}
+/* End */
+
+
+/* .content-table {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    bottom: 120px;
+    right: 50px;
+    padding: 24px 36px;
+    width: 66%;
+    font: 15px 'Open Sans', 'Myriad Pro';
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+}
+
+.table-list {
+    color: #4b5c6a;
+    font: 15px 'Open Sans', 'Myriad Pro';
+    width: 100%;
+}
+
+th {
+    font-size: 21px;
+    font-weight: 300;
+    text-align: left;
+    padding: 10px 0px 10px 5px;
+}
+
+tr {
+
+    line-height: 1.75em;
+}
+
+td {
+    padding: 5px 5px 5px 70px;
+    border-bottom: 1px dotted #ccc;
+} */
+
+.content-table {
+    border-collapse: collapse;
+    margin: 25px auto;
+    width: 66%;
+    font: 15px 'Open Sans', 'Myriad Pro';
+    font-size: 0.9em;
+    min-width: 600px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+    background-color: #4b5c6a;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table th {
+    font-size: 21px;
+    font-weight: 300;
+    text-align: left;
+    padding: 10px 0px 10px 10px;
+}
+
+.content-table tr {
+    line-height: 2.75em;
+    vertical-align: middle;
+}
+
+.content-table-icon {
+    display: flex;
+    align-items: center;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px dotted #ccc;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #4b5c6a;
+}
+
+.content-table-icon {
+    padding: 0.5em; 
+    padding-right: 1em; 
+}
+
+.btn-edit-book .btd-delete-book {
+    font-size: 20px;
+}
