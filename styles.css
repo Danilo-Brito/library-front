@@ -8,6 +8,7 @@ body {
     background-color: white;
 }
 
+
 /* HEADER */
 header {
     background-image: url(resources/header.jpeg);
@@ -28,8 +29,8 @@ header {
 
 /* End */
 
-/* Form */
-.floating-library-form .library-icon {
+/* FORM */
+.floating-library-form .library-icon{
     position: fixed;
     bottom: 40px;
     right: 50px;
@@ -47,7 +48,6 @@ header {
     transform: scale(1.1);
 }
 
-/* Ajustar esse cara depois para ficar legal no layout */
 .floating-library-form .form-container {
     position: fixed;
     bottom: 120px;
@@ -71,7 +71,6 @@ header {
     pointer-events: auto;
 }
 
-/* * serve para aplicar para todos os componentes dentro desse form */
 .floating-library-form * {
     box-sizing: border-box;
 }
@@ -149,43 +148,6 @@ header {
 }
 /* End */
 
-
-/* .content-table {
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    bottom: 120px;
-    right: 50px;
-    padding: 24px 36px;
-    width: 66%;
-    font: 15px 'Open Sans', 'Myriad Pro';
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
-    border-radius: 24px;
-}
-
-.table-list {
-    color: #4b5c6a;
-    font: 15px 'Open Sans', 'Myriad Pro';
-    width: 100%;
-}
-
-th {
-    font-size: 21px;
-    font-weight: 300;
-    text-align: left;
-    padding: 10px 0px 10px 5px;
-}
-
-tr {
-
-    line-height: 1.75em;
-}
-
-td {
-    padding: 5px 5px 5px 70px;
-    border-bottom: 1px dotted #ccc;
-} */
-
 .content-table {
     border-collapse: collapse;
     margin: 25px auto;
@@ -198,7 +160,7 @@ td {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-.content-table thead tr {
+.content-table-tr {
     background-color: #4b5c6a;
     color: white;
     text-align: left;
@@ -242,8 +204,4 @@ td {
 .content-table-icon {
     padding: 0.5em; 
     padding-right: 1em; 
-}
-
-.btn-edit-book .btd-delete-book {
-    font-size: 20px;
 }

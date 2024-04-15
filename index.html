@@ -17,13 +17,15 @@
 
 <body>
     <div class="layer">
+        <!-- Cabeçalho do sitema -->
         <header>
             <div class="header-text">
                 <h1>Biblioteca</h1>
                 <p>Liste todos os seus livros</p>
             </div>
         </header>
-
+        
+        <!-- Formulário para adicionar um novo livro -->
         <div class="floating-library-form">
             <div class="form-container">
                 <h3>Adicione um novo livro</h3>
@@ -47,7 +49,7 @@
                         <input class="form-input" type="text" id="author">
                     </div>
 
-                    <input type="submit" value="Adicionar" onclick="showForm">
+                    <input type="submit" value="Adicionar" onclick="newItem()">
                 </form>
             </div>
             <div class="library-icon">
@@ -55,53 +57,51 @@
             </div>
         </div>
 
-        <table class="content-table">
-            <thead>
-                <tr>
-                    <th>Livro</th>
-                    <th>Categoria</th>
-                    <th>Autor</th>
-                    <th>Operações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Duna</td>
-                    <td>Frank Hebert</td>
-                    <td>Ficção Científica</td>
-                    <td class="content-table-icon">
-                        <button class="btn-edit-book"><i class="fa-solid fa-pen"></i></button>
-                        <button class="btn-delete-book"><i class="fa-solid fa-trash"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>O Chamado de Cthulhu</td>
-                    <td>H.P. Lovecraft</td>
-                    <td>Ficção Científica</td>
-                     <td class="content-table-icon">
-                        <button class="btn-edit-book"><i class="fa-solid fa-pen"></i></button>
-                        <button class="btn-delete-book"><i class="fa-solid fa-trash"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Elantris</td>
-                    <td>Brandon Sanderson</td>
-                    <td>Ficção Científica</td>
-                     <td class="content-table-icon">
-                        <button class="btn-edit-book"><i class="fa-solid fa-pen"></i></button>
-                        <button class="btn-delete-book"><i class="fa-solid fa-trash"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Crepúsculo</td>
-                    <td>Stephenie Meyer</td>
-                    <td>Romance</td>
-                     <td class="content-table-icon">
-                        <button class="btn-edit-book"><i class="fa-solid fa-pen"></i></button>
-                        <button class="btn-delete-book"><i class="fa-solid fa-trash"></i></button>
-                    </td>
-                </tr>
-            </tbody>
+        <!-- Formulário para Editar um livro -->
+        <div class="floating-library-form">
+            <div class="form-container", id="edit-form-container">
+                <h3>Edite o seu livro</h3>
+
+                <form action="#">
+                    <div class="field-container">
+                        <i class="fa-solid fa-book"></i>
+                        <label for="book">ID</label>
+                        <input class="form-input" type="hidden" id="edit-id">
+                    </div>
+
+                    <div class="field-container">
+                        <i class="fa-solid fa-book"></i>
+                        <label for="book">Livro</label>
+                        <input class="form-input" type="text" id="edit-name">
+                    </div>
+
+                    <div class="field-container">
+                        <i class="fa-solid fa-bookmark"></i>
+                        <label for="category">Categoria</label>
+                        <input class="form-input" type="text" id="edit-category">
+                    </div>
+
+                    <div class="field-container">
+                        <i class="fa-solid fa-user"></i>
+                        <label for="author">Autor</label>
+                        <input class="form-input" type="text" id="edit-author">
+                    </div>
+
+                    <input type="submit" id="form-container-button" value="Salvar">
+                </form>
+            </div>
+        </div>
+
+        <!-- Tabela com livros existentes -->
+        <table class="content-table" id="book-table">
+            <tr class="content-table-tr">
+                <th>ID</th>
+                <th>Livro</th>
+                <th>Categoria</th>
+                <th>Autor</th>
+                <th>Editar</th>
+                <th>Deletar</th>
+            </tr>
         </table>
 
     </div>
