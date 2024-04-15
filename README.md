@@ -8,7 +8,7 @@
 
   <p align="center">
    Projeto MVP - Sprint: Desenvolvimento Full Stack Básico
-
+</div>
 
 ## Sobre o Projeto
 
