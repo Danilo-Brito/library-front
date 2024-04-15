@@ -29,8 +29,8 @@ header {
 
 /* End */
 
-/* FORM */
-.floating-library-form .library-icon{
+/* Formulário de adicionar livro */
+.floating-library-form .library-icon {
     position: fixed;
     bottom: 40px;
     right: 50px;
@@ -148,6 +148,7 @@ header {
 }
 /* End */
 
+/* Tabela de listagem */
 .content-table {
     border-collapse: collapse;
     margin: 25px auto;
@@ -202,6 +203,6 @@ header {
 }
 
 .content-table-icon {
-    padding: 0.5em; 
-    padding-right: 1em; 
+    padding: 0.5em;
+    padding-right: 1em;
 }
