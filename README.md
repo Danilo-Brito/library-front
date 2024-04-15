@@ -1,19 +1,47 @@
-# Bibliote Front
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+    <img src="resources/book.png" alt="Logo" width="80" height="80">
+  </a>
 
-Projeto MVP - Sprint: Desenvolvimento Full Stack Básico
+  <h3 align="center">Minha Biblioteca</h3>
+
+  <p align="center">
+   Projeto MVP - Sprint: Desenvolvimento Full Stack Básico
+
+
+## Sobre o Projeto
+
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 Esté projeto tem como objetivo ajudar a listar os livros comprados cadastrando eles plataforma.
 
----
-## Como executar
+Nesta plataforma você ira conseguir fazer as seguintes ações:
 
-1 - Faça download do projeto e execute o arquivo index.html no browser.
-2 - Acesse ao repositório com as api do projeto e banco de dados.
+* Adicionar um livro
+* Editar um livro
+* Deletar um livro
+* Listar todos os livros
 
----
-## Biblioteca Back
 
-Nesse link você terá acesso ao projeto de back contendo as Apis e o script para criação do banco de dados da biblioteca.
+## Como Executar
 
-https://github.com/Danilo-Brito/library-api
+### Installation
 
+1. Faça o clone do reposítorio.
+   ```sh
+   git clone https://github.com/Danilo-Brito/library-api
+   ```
+2. Siga os passos para a execução da api e criação do banco de dados na doc: https://github.com/Danilo-Brito/library-api
+3. Execute o arquivo index.html no seu browser.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTACT -->
+## Contact
+
+Danilo Brito - danilomelo.brito19@gmail.com
+
+Project Link: https://github.com/Danilo-Brito/library-api
+
+[product-screenshot]: resources/application.png
