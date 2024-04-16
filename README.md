@@ -35,8 +35,6 @@ Nesta plataforma você ira conseguir fazer as seguintes ações:
 2. Siga os passos para a execução da api e criação do banco de dados na doc: https://github.com/Danilo-Brito/library-api
 3. Execute o arquivo index.html no seu browser.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- CONTACT -->
 ## Contact
 
