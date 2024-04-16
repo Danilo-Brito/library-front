@@ -82,6 +82,7 @@ header {
 }
 
 .floating-library-form form input[type="text"],
+.floating-library-form form input[type="number"],
 .floating-library-form form textarea {
     width: 100%;
     padding: 14px 32px;

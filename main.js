@@ -1,6 +1,20 @@
 /**
- * Executa a requisição dos livros cadastrados no banco e retorma como lista.
- */
+* Objeto para armazenar o response da api de busca.
+*/
+class Book {
+    constructor(id, name, category, author) {
+        this.id = id;
+        this.name = name;
+        this.category = category;
+        this.author = author;
+    }
+}
+
+var books = [];
+
+/**
+* Executa a requisição dos livros cadastrados no banco e retorma como lista.
+*/
 
 const getList = async () => {
     let url = 'http://127.0.0.1:5000/livros';
@@ -9,8 +23,18 @@ const getList = async () => {
     })
         .then((response) => response.json())
         .then((data) => {
-            data.books.forEach(item => insertList(item.id, item.name, item.category, item.author))
+            data.books.forEach(item => insertList(item.name, item.category, item.author))
+            responseData = data.books;
             console.log('Response', data)
+
+            // Atribuindo os valores do response a uma variável global para futuras
+            // manipulações.
+            books = data.books.map(bookData => new Book(
+                bookData.id,
+                bookData.name,
+                bookData.category,
+                bookData.author
+            ));
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -34,7 +58,7 @@ const postItem = async (name, category, author) => {
     formData.append('name', name);
     formData.append('category', category);
     formData.append('author', author);
-
+    console.log(name, category, author)
     // Cria uma requisição POST para o servidor.
     let url = 'http://127.0.0.1:5000/criar';
     fetch(url, {
@@ -53,7 +77,6 @@ const postItem = async (name, category, author) => {
 const newItem = () => {
 
     // Pega os valores inseridos nos campos do formulário
-    let idInput = document.getElementById("id").value;
     let nameInput = document.getElementById("name").value;
     let categoryInput = document.getElementById("category").value;
     let authorInput = document.getElementById("author").value;
@@ -67,10 +90,10 @@ const newItem = () => {
     } else {
 
         // Chama a função para inserir os campos na lista.
-        insertList(idInput, nameInput, categoryInput, authorInput)
+        insertList(nameInput, categoryInput, authorInput)
 
         // Chama a função para adicionar os campos na lista.
-        postItem(idInput, nameInput, categoryInput, authorInput)
+        postItem(nameInput, categoryInput, authorInput)
         alert("Item adicionado!")
     }
 }
@@ -80,15 +103,14 @@ const newItem = () => {
  * 
  * Função para inserir os campos.
  * 
- * @param {String} idInput id do livro
  * @param {String} nameInput  nome do livro
  * @param {String} categoryInput categoria do livro
  * @param {String} authorInput autor do livro
  */
-const insertList = (idInput, nameInput, categoryInput, authorInput) => {
+const insertList = (nameInput, categoryInput, authorInput) => {
 
     // Cria uma variável com os dados recebidos via parâmetro.
-    var item = [idInput, nameInput, categoryInput, authorInput]
+    var item = [nameInput, categoryInput, authorInput]
 
     // Pega o id da tabela.
     var table = document.getElementById('book-table');
@@ -159,14 +181,15 @@ const removeElement = () => {
             let div = this.parentElement.parentElement;
 
             // Pega o nome do item da linha clicada.
-            const nomeItem = div.getElementsByTagName('td')[1].innerHTML
+            const itemName = div.getElementsByTagName('td')[0].innerHTML
+            console.log("Deletar: ", itemName)
 
             // Condição para exibir um alerta para confirmar a deleção do item.
             if (confirm("Você tem certeza?")) {
                 div.remove()
 
                 // Chama função para deletar item.
-                deleteItem(nomeItem)
+                deleteItem(itemName)
                 alert("Removido!")
             }
         }
@@ -176,11 +199,11 @@ const removeElement = () => {
 /**
  * Cria uma requisição de delete para deletar o item do banco de dados.
  * 
- * @param {String} item nome do livro
+ * @param {int} item nome do livro
  */
 const deleteItem = (item) => {
     console.log(item)
-    let url = 'http://127.0.0.1:5000/deletar?nome=' + item;
+    let url = 'http://127.0.0.1:5000/deletar?name=' + item;
     fetch(url, {
         method: 'delete'
     })
@@ -209,10 +232,10 @@ const editElement = () => {
             let div = this.parentElement.parentElement;
 
             // Pega o valor do ID da linha clicada.
-            const idItem = div.getElementsByTagName('td')[0].innerHTML
+            const itemName = div.getElementsByTagName('td')[0].innerHTML
 
             // Chama a função de editar item.
-            setClickEdit(idItem)
+            setClickEdit(itemName)
         }
     }
 }
@@ -224,35 +247,48 @@ const editElement = () => {
  * 
  * @param {Int} id id do livro.
  */
-const setClickEdit = (id) => {
+const setClickEdit = (itemName) => {
     let saveChange = document.getElementById("form-container-button")
     saveChange.addEventListener('click', function () {
 
+        // Variável para armazenar o objeto retornado da busca
+        let foundBook = searchBookByName(itemName);
+
         // Função para criar requisição de edição.
-        changeItemRequest(id)
+        changeItemRequest(foundBook.id ,itemName)
         alert("Livro atualizado!")
     });
 }
 
 /**
+ * Executa uma busca a partir do nome recebido como parâmetro na lista de livro e
+ * retorna o objeto encontrado.
+ * 
+ * @param {String} name 
+ * @returns 
+ */
+function searchBookByName(name) {
+    return books.find(book => book.name === name);
+}
+
+/**
  * Cria uma requisição POST para enviar os novos dados para editar o livro no servidor.
  * 
- * @param {Int} id id do livro.
+ * @param {Int} id id do livro
+ * @param {String} name Nome do livro
  */
-const changeItemRequest = async (id) => {
-    console.log(id)
+const changeItemRequest = async (id, name) => {
 
     // Pega os valores inseridos no formulário de edição
     // e mantém o ID do livro selecionado.
-    let idInput = document.getElementById("edit-id").value = id;
     let nameInput = document.getElementById("edit-name").value;
     let categoryInput = document.getElementById("edit-category").value;
     let authorInput = document.getElementById("edit-author").value;
-    console.log("Foi", idInput, nameInput, categoryInput, authorInput)
+    console.log("Foi", nameInput, categoryInput, authorInput)
 
     // Cria um novo FormData() com os novos dados.
     const newformData = new FormData();
-    newformData.append('id', idInput);
+    newformData.append('id', id);
     newformData.append('name', nameInput);
     newformData.append('category', categoryInput);
     newformData.append('author', authorInput);
